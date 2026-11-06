@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>冰面炫舞</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div id="wrap">
+  <canvas id="game" width="540" height="960"></canvas>
+
+  <div id="homeUI" class="screen">
+    <button class="icon-btn" id="settingsBtn">⚙️</button>
+    <h1 class="title">❄️ 冰面炫舞 ❄️</h1>
+    <p class="subtitle">点击草坪前进，别掉进水池哦</p>
+    <canvas id="homePet" width="160" height="160"></canvas>
+    <div class="pet-name" id="homePetName">小猫</div>
+    <button class="btn" id="playBtn">开始游戏</button>
+    <button class="bottom-btn" id="petBtn">🐾 宠物</button>
+  </div>
+
+  <div id="readyUI" class="screen hidden">
+    <h2>准备开始</h2>
+    <p>选择人机实力</p>
+    <div class="diff-cards">
+      <button class="diff-btn" data-diff="novice">新手</button>
+      <button class="diff-btn selected" data-diff="normal">普通</button>
+      <button class="diff-btn" data-diff="hard">高手</button>
+      <button class="diff-btn" data-diff="master">大师</button>
+    </div>
+    <canvas id="readyPet" width="140" height="140"></canvas>
+    <div class="pet-name" id="readyPetName">小猫</div>
+    <button class="btn" id="startRaceBtn">开始比赛</button>
+  </div>
+
+  <div id="petUI" class="screen hidden">
+    <h2>🐾 宠物展示</h2>
+    <canvas id="petShow" width="220" height="220"></canvas>
+    <div class="pet-name" id="petShowName">小猫</div>
+    <div class="pet-cards">
+      <div class="pet-card" data-pet="cat"><canvas width="100" height="100"></canvas><span>小猫</span></div>
+      <div class="pet-card" data-pet="dog"><canvas width="100" height="100"></canvas><span>小狗</span></div>
+      <div class="pet-card" data-pet="fox"><canvas width="100" height="100"></canvas><span>九尾狐</span></div>
+    </div>
+    <button class="btn" id="petConfirmBtn">确定</button>
+  </div>
+
+  <div id="settingsUI" class="screen hidden">
+    <h2>⚙️ 设置</h2>
+    <div class="setting-row"><span>音效</span><button class="toggle on" id="soundToggle">开</button></div>
+    <div class="setting-row"><span>震动</span><button class="toggle on" id="vibrateToggle">开</button></div>
+    <div class="setting-row"><span>落水惩罚</span><button class="toggle on" id="fallToggle">开</button></div>`n    <div class="setting-row"><span>背景音乐</span><button class="toggle on" id="bgmToggle">开</button></div>
+    <button class="btn" id="settingsBackBtn">返回</button>
+  </div>
+
+  <div id="overUI" class="screen hidden">
+    <h1>🏁 比赛结束 🏁</h1>
+    <h2 id="timeResult"></h2>
+    <div id="rankList" class="rank-list"></div>
+    <button class="btn" id="restartBtn">再来一次</button>
+    <button class="btn ghost" id="homeBtn">返回主页</button>
+  </div>
+
+  <button class="float-home hidden" id="gameHomeBtn">🏠</button>
+</div>
+<script src="js/utils.js"></script>
+<script src="js/config.js"></script>
+<script src="js/pets.js"></script>
+<script src="js/bgm.js"></script>
+<script src="js/game.js"></script>
+</body>
+</html>
